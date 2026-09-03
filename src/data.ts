@@ -66,6 +66,13 @@ export const PROJECTS: Project[] = [
     emoji: '✂️',
   },
   {
+    title: 'NS The Beauty Salon',
+    category: 'Salon & Booking',
+    description: 'A beauty salon website with service showcase and online booking.',
+    url: 'https://syedtajamul32-ux.github.io/NS-The-Beauty-Salon/',
+    emoji: '💇‍♀️',
+  },
+  {
     title: 'Old Portfolio',
     category: 'Previous Portfolio',
     description: 'My earlier portfolio site — the version before this one.',
