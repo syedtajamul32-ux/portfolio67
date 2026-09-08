@@ -7,7 +7,7 @@ function maskName(name: string): string {
   if (parts.length === 1) return parts[0];
   const first = parts[0];
   const last = parts[parts.length - 1];
-  return `${first} ${last.charAt(0).toUpperCase()}${'*'.repeat(Math.max(last.length - 1, 3))}`;
+  return `${first} – ${last.charAt(0).toUpperCase()}${'*'.repeat(Math.max(last.length - 1, 3))}`;
 }
 
 function StarRow({ value, size = 'sm' }: { value: number; size?: 'sm' | 'md' }) {
