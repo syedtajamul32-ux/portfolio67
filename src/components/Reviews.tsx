@@ -2,6 +2,14 @@ import { motion } from 'framer-motion';
 import { Star, ArrowUpRight, Quote } from 'lucide-react';
 import { TESTIMONIALS } from '@/data';
 
+function maskName(name: string): string {
+  const parts = name.trim().split(/\s+/);
+  if (parts.length === 1) return `${parts[0].charAt(0)}.`;
+  const first = parts[0].charAt(0).toUpperCase();
+  const last = parts[parts.length - 1].charAt(0).toUpperCase();
+  return `${first}. ${last}.`;
+}
+
 function StarRow({ value, size = 'sm' }: { value: number; size?: 'sm' | 'md' }) {
   const dim = size === 'md' ? 'w-5 h-5' : 'w-4 h-4';
   return (
@@ -83,7 +91,7 @@ export default function Reviews() {
                   </div>
                   <div>
                     <p className="text-sm font-medium text-text-primary">
-                      {t.client}
+                      {maskName(t.client)}
                     </p>
                     <p className="text-xs text-muted">{t.role}</p>
                   </div>
