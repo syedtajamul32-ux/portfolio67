@@ -4,10 +4,13 @@ import { TESTIMONIALS } from '@/data';
 
 function maskName(name: string): string {
   const parts = name.trim().split(/\s+/);
-  if (parts.length === 1) return `${parts[0].charAt(0)}.`;
-  const first = parts[0].charAt(0).toUpperCase();
-  const last = parts[parts.length - 1].charAt(0).toUpperCase();
-  return `${first}. ${last}.`;
+  if (parts.length === 1) {
+    const p = parts[0];
+    return `${p.charAt(0).toUpperCase()}${'_'.repeat(Math.max(p.length - 1, 2))}`;
+  }
+  return parts
+    .map((p) => `${p.charAt(0).toUpperCase()}${'_'.repeat(Math.max(p.length - 1, 2))}`)
+    .join(' ');
 }
 
 function StarRow({ value, size = 'sm' }: { value: number; size?: 'sm' | 'md' }) {
