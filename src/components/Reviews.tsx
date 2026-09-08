@@ -6,7 +6,8 @@ function maskName(name: string): string {
   const parts = name.trim().split(/\s+/);
   const maskPart = (p: string) => {
     if (p.length <= 2) return p;
-    return `${p.charAt(0)}${'*'.repeat(p.length - 2)}${p.charAt(p.length - 1)}`;
+    const chars = `${p.charAt(0)}${'*'.repeat(p.length - 2)}${p.charAt(p.length - 1)}`;
+    return chars.split('').join('-');
   };
   return parts.map(maskPart).join(' – ');
 }
