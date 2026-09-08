@@ -120,6 +120,45 @@ export type Exploration = {
   tag: string;
 };
 
+export type Testimonial = {
+  client: string;
+  project: string;
+  projectUrl: string;
+  rating: number;
+  quote: string;
+  role: string;
+};
+
+export const TESTIMONIALS: Testimonial[] = [
+  {
+    client: 'Aaqib Bhat',
+    project: 'Battle Bunker',
+    projectUrl: 'https://syedtajamul32-ux.github.io/Battlebunker1/',
+    rating: 5,
+    role: 'Founder, Battle Bunker',
+    quote:
+      'Tajamul delivered a gaming platform that looks incredible and runs flawlessly. The whole experience feels fast, polished, and way beyond what we expected for the budget.',
+  },
+  {
+    client: 'Nida Sheikh',
+    project: 'NS The Beauty Salon',
+    projectUrl: 'https://syedtajamul32-ux.github.io/NS-The-Beauty-Salon/',
+    rating: 5,
+    role: 'Owner, NS The Beauty Salon',
+    quote:
+      'Our new salon website is stunning. Booking is seamless, the design is elegant, and our customers constantly compliment how professional it looks. Highly recommend.',
+  },
+  {
+    client: 'Sameer Khan',
+    project: 'Deepsex Unisex Salon',
+    projectUrl: 'https://syedtajamul32-ux.github.io/DeepunisexSalon/',
+    rating: 5,
+    role: 'Manager, Deepsex Unisex Salon',
+    quote:
+      'From concept to launch, Tajamul understood exactly what we wanted. The site brought us more online bookings in the first week than we had all month. Outstanding work.',
+  },
+];
+
 export const EXPLORATIONS: Exploration[] = [
   { label: 'Generative UI', tag: 'Design' },
   { label: 'Agent Flows', tag: 'AI' },

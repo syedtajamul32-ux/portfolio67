@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { PROFILE } from '@/data';
 
-const LINKS = ['Home', 'Work', 'Reviews', 'Resume'];
+const LINKS = ['Home', 'Work', 'Clients', 'Resume'];
 
 export default function Navbar() {
   const [active, setActive] = useState('Home');
@@ -11,7 +11,7 @@ export default function Navbar() {
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 100);
-      const sections = ['home', 'work', 'reviews', 'resume'];
+      const sections = ['home', 'work', 'clients', 'resume'];
       for (const id of sections) {
         const el = document.getElementById(id);
         if (!el) continue;
