@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { Github } from 'lucide-react';
 import { PROFILE } from '@/data';
 
 const LINKS = ['Home', 'Work', 'Clients', 'Resume'];
@@ -35,7 +36,7 @@ export default function Navbar() {
   };
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-4 md:pt-6 px-4">
+    <div className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-3 sm:pt-4 md:pt-6 px-3 sm:px-4">
       <div
         className={`inline-flex items-center rounded-full backdrop-blur-md border border-white/10 bg-surface px-2 py-2 transition-shadow duration-300 ${
           scrolled ? 'shadow-md shadow-black/10' : ''
@@ -85,6 +86,16 @@ export default function Navbar() {
         <div className="w-px h-5 bg-stroke mx-1 hidden sm:block" />
 
         <a
+          href={PROFILE.github}
+          target="_blank"
+          rel="noreferrer"
+          className="hidden sm:flex items-center justify-center rounded-full p-2 text-muted hover:text-text-primary transition-colors"
+          aria-label="GitHub"
+        >
+          <Github className="w-4 h-4" />
+        </a>
+
+        <a
           href={`mailto:${PROFILE.email}`}
           className="relative group rounded-full p-[2px] text-xs sm:text-sm"
         >
@@ -92,8 +103,8 @@ export default function Navbar() {
             className="absolute inset-0 rounded-full accent-gradient opacity-0 group-hover:opacity-100 transition-opacity duration-300"
             style={{ backgroundSize: '200% 200%', animation: 'gradient-shift 6s ease infinite' }}
           />
-          <span className="relative block bg-surface rounded-full backdrop-blur-md px-3 sm:px-4 py-1.5 sm:py-2 text-text-primary">
-            Say hi <span className="inline-block">↗</span>
+          <span className="relative block bg-surface rounded-full backdrop-blur-md px-2.5 sm:px-4 py-1.5 sm:py-2 text-text-primary whitespace-nowrap">
+            <span className="hidden sm:inline">Say hi</span> <span className="inline-block">↗</span>
           </span>
         </a>
       </div>

@@ -71,8 +71,8 @@ export default function SelectedWork() {
   const rest = PROJECTS.slice(4);
 
   return (
-    <section id="work" className="bg-bg py-12 md:py-16">
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16">
+    <section id="work" className="bg-bg py-10 sm:py-12 md:py-16">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16">
         <motion.div {...reveal} className="mb-10 md:mb-14">
           <div className="flex items-center gap-3 mb-6">
             <div className="w-8 h-px bg-stroke" />
@@ -106,16 +106,16 @@ export default function SelectedWork() {
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-5 md:gap-6">
           <Card project={featured[0]} className="md:col-span-7 aspect-[16/10]" delay={0} />
           <Card project={featured[1]} className="md:col-span-5 aspect-[4/5] md:aspect-auto md:h-full" delay={0.1} />
           <Card project={featured[2]} className="md:col-span-5 aspect-[4/5] md:aspect-auto md:h-full" delay={0.1} />
           <Card project={featured[3]} className="md:col-span-7 aspect-[16/10]" delay={0.2} />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 mt-5 md:mt-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 md:gap-6 mt-4 sm:mt-5 md:mt-6">
           {rest.map((p, i) => (
-            <Card key={p.title} project={p} className="aspect-[16/7]" delay={i * 0.1} />
+            <Card key={p.title} project={p} className="aspect-[16/9] sm:aspect-[16/7]" delay={i * 0.1} />
           ))}
         </div>
       </div>

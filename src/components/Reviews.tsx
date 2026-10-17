@@ -35,8 +35,8 @@ export default function Reviews() {
       : 0;
 
   return (
-    <section id="clients" className="bg-bg py-16 md:py-24">
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16">
+    <section id="clients" className="bg-bg py-12 sm:py-16 md:py-24">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -73,7 +73,7 @@ export default function Reviews() {
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
           {TESTIMONIALS.map((t, i) => (
             <motion.a
               key={t.client}

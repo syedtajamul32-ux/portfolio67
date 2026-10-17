@@ -3,12 +3,13 @@ export const PROFILE = {
   initial: 'TR',
   age: 15,
   location: 'Kashmir, India',
-  roles: ['AI Tools Specialist', 'Creative', 'Fullstack', 'Founder'],
+  roles: ['AI Tools Specialist', 'Creative', 'Fullstack', 'Founder', 'Trader'],
   eyebrow: "PORTFOLIO '26",
   description:
     'Building seamless digital experiences — websites, apps, AI agents, and products that actually work.',
-  email: 'syedtajamul32@gmail.com',
+  email: 'tajamul.builds@gmail.com',
   github: 'https://github.com/syedtajamul32-ux',
+  githubHandle: 'syedtajamul32-ux',
   linkedin: 'https://www.linkedin.com/in/tajamul-reyaz-496592322',
   instagram: 'https://www.instagram.com/tajamullll.__',
   portfolio: 'https://syedtajamul32-ux.github.io/portfolio7/',
@@ -28,7 +29,7 @@ export const PROJECTS: Project[] = [
     category: 'Gaming Platform',
     description: 'A competitive gaming & battle platform built for fast-paced play.',
     url: 'https://syedtajamul32-ux.github.io/Battlebunker1/',
-    emoji: '💻',
+    emoji: '🎮',
   },
   {
     title: 'Kashmir AI',
@@ -42,7 +43,7 @@ export const PROJECTS: Project[] = [
     category: 'Utility Tool',
     description: 'A clean split utility & tool app for everyday workflows.',
     url: 'https://splitone.bolt.host',
-    emoji: '🧑\u200d💻',
+    emoji: '🧑‍💻',
   },
   {
     title: 'Humanize AI',
@@ -50,6 +51,13 @@ export const PROJECTS: Project[] = [
     description: 'An AI humanization tool that refines machine-generated text.',
     url: 'https://humanize-ai.bolt.host',
     emoji: '🪄',
+  },
+  {
+    title: 'Global Grace Salon',
+    category: 'Salon & Booking',
+    description: 'A full unisex salon website with online booking and elegant service showcase.',
+    url: 'https://syedtajamul32-ux.github.io/globalgracesalon/',
+    emoji: '💇‍♀️',
   },
   {
     title: 'Durable AI Site',
@@ -70,7 +78,7 @@ export const PROJECTS: Project[] = [
     category: 'Salon & Booking',
     description: 'A beauty salon website with service showcase and online booking.',
     url: 'https://syedtajamul32-ux.github.io/NS-The-Beauty-Salon/',
-    emoji: '💇‍♀️',
+    emoji: '💅',
   },
   {
     title: 'Old Portfolio',
@@ -90,6 +98,24 @@ export type JournalEntry = {
 
 export const JOURNAL: JournalEntry[] = [
   {
+    title: 'Why AI trading is the next frontier',
+    date: 'Oct 2026',
+    readTime: '5 min',
+    tag: 'Trading',
+  },
+  {
+    title: 'How I use AI agents to save hours every week',
+    date: 'Sep 2026',
+    readTime: '4 min',
+    tag: 'AI',
+  },
+  {
+    title: 'Money, mindset, and building at 15',
+    date: 'Sep 2026',
+    readTime: '6 min',
+    tag: 'Money',
+  },
+  {
     title: 'Shipping AI agents that actually work',
     date: 'Aug 2026',
     readTime: '6 min',
@@ -106,12 +132,6 @@ export const JOURNAL: JournalEntry[] = [
     date: 'Jun 2026',
     readTime: '5 min',
     tag: 'Community',
-  },
-  {
-    title: 'Why I choose tools over frameworks',
-    date: 'May 2026',
-    readTime: '3 min',
-    tag: 'Craft',
   },
 ];
 
@@ -157,15 +177,26 @@ export const TESTIMONIALS: Testimonial[] = [
     quote:
       'From concept to launch, Tajamul understood exactly what we wanted. The site brought us more online bookings in the first week than we had all month. Outstanding work.',
   },
+  {
+    client: 'Santosh Kumar',
+    project: 'Global Grace Salon',
+    projectUrl: 'https://syedtajamul32-ux.github.io/globalgracesalon/',
+    rating: 5,
+    role: 'Owner, Global Grace Salon',
+    quote:
+      'Tajamul built us a beautiful salon website that brought in clients from day one. The booking system works perfectly and the design is exactly what we wanted. Truly impressed.',
+  },
 ];
 
 export const EXPLORATIONS: Exploration[] = [
   { label: 'Generative UI', tag: 'Design' },
   { label: 'Agent Flows', tag: 'AI' },
   { label: 'Motion Studies', tag: 'Animation' },
+  { label: 'Trading Bots', tag: 'Trading' },
   { label: 'Brand Systems', tag: 'Identity' },
   { label: '3D Explorations', tag: 'WebGL' },
   { label: 'Type Play', tag: 'Typography' },
+  { label: 'Market Visuals', tag: 'Finance' },
 ];
 
 export const STATS = [
@@ -178,7 +209,7 @@ export const SOCIALS = [
   { label: 'GitHub', url: 'https://github.com/syedtajamul32-ux' },
   { label: 'LinkedIn', url: 'https://www.linkedin.com/in/tajamul-reyaz-496592322' },
   { label: 'Instagram', url: 'https://www.instagram.com/tajamullll.__' },
-  { label: 'Email', url: 'mailto:syedtajamul32@gmail.com' },
+  { label: 'Email', url: 'mailto:tajamul.builds@gmail.com' },
 ];
 
 export const HLS_SRC =

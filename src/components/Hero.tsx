@@ -57,11 +57,11 @@ export default function Hero() {
           {PROFILE.eyebrow}
         </p>
 
-        <h1 className="name-reveal text-6xl md:text-8xl lg:text-9xl font-display italic leading-[0.9] tracking-tight text-text-primary mb-6">
+        <h1 className="name-reveal text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-display italic leading-[0.9] tracking-tight text-text-primary mb-4 sm:mb-6">
           {PROFILE.name}
         </h1>
 
-        <p className="blur-in text-lg md:text-2xl text-muted mb-6">
+        <p className="blur-in text-base sm:text-lg md:text-2xl text-muted mb-4 sm:mb-6">
           A{' '}
           <span
             key={roleIndex}
@@ -72,7 +72,7 @@ export default function Hero() {
           in {PROFILE.location}.
         </p>
 
-        <p className="blur-in text-sm md:text-base text-muted max-w-md mb-12">
+        <p className="blur-in text-sm md:text-base text-muted max-w-md mb-8 sm:mb-12">
           {PROFILE.description}
         </p>
 

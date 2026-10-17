@@ -19,12 +19,14 @@ const TAG_EMOJI: Record<string, string> = {
   Build: '🛠',
   Community: '🌍',
   Craft: '✦',
+  Trading: '📈',
+  Money: '💰',
 };
 
 export default function Journal() {
   return (
-    <section id="resume" className="bg-bg py-16 md:py-24">
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16">
+    <section id="resume" className="bg-bg py-12 sm:py-16 md:py-24">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16">
         <motion.div {...reveal} className="mb-10 md:mb-14">
           <div className="flex items-center gap-3 mb-6">
             <div className="w-8 h-px bg-stroke" />
