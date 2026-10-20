@@ -5,7 +5,6 @@ import Hero from '@/components/Hero';
 import SelectedWork from '@/components/SelectedWork';
 import Reviews from '@/components/Reviews';
 import Journal from '@/components/Journal';
-import Explorations from '@/components/Explorations';
 import Stats from '@/components/Stats';
 import Pricing from '@/components/Pricing';
 import Process from '@/components/Process';
@@ -31,7 +30,6 @@ export default function App() {
         <BeforeAfter />
         <Compare />
         <Journal />
-        <Explorations />
         <Stats />
         <Contact />
       </main>

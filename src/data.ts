@@ -114,11 +114,6 @@ export const JOURNAL: JournalEntry[] = [
   },
 ];
 
-export type Exploration = {
-  label: string;
-  tag: string;
-};
-
 export type Testimonial = {
   client: string;
   project: string;
@@ -165,17 +160,6 @@ export const TESTIMONIALS: Testimonial[] = [
     quote:
       'Tajamul built us a beautiful salon website that brought in clients from day one. The booking system works perfectly and the design is exactly what we wanted. Truly impressed.',
   },
-];
-
-export const EXPLORATIONS: Exploration[] = [
-  { label: 'Generative UI', tag: 'Design' },
-  { label: 'Agent Flows', tag: 'AI' },
-  { label: 'Motion Studies', tag: 'Animation' },
-  { label: 'Trading Bots', tag: 'Trading' },
-  { label: 'Brand Systems', tag: 'Identity' },
-  { label: '3D Explorations', tag: 'WebGL' },
-  { label: 'Type Play', tag: 'Typography' },
-  { label: 'Market Visuals', tag: 'Finance' },
 ];
 
 export const STATS = [
