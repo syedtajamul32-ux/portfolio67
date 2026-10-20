@@ -1,30 +1,35 @@
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
+import { AnimatePresence, motion } from 'framer-motion';
 import BackgroundVideo from './BackgroundVideo';
 import { PROFILE } from '@/data';
 
+const nameWords = PROFILE.name.split(' ');
+
 export default function Hero() {
   const [roleIndex, setRoleIndex] = useState(0);
+  const [direction, setDirection] = useState(1);
   const rootRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const id = setInterval(
-      () => setRoleIndex((i) => (i + 1) % PROFILE.roles.length),
-      2000
-    );
+    const id = setInterval(() => {
+      setDirection(1);
+      setRoleIndex((i) => (i + 1) % PROFILE.roles.length);
+    }, 2200);
     return () => clearInterval(id);
   }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap
-        .timeline({ defaults: { ease: 'power3.out' } })
-        .from('.name-reveal', {
-          opacity: 0,
-          y: 50,
-          duration: 1.2,
-          delay: 0.1,
-        })
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+      tl.from('.name-word', {
+        opacity: 0,
+        y: 60,
+        rotateX: -90,
+        duration: 0.8,
+        stagger: 0.12,
+        delay: 0.2,
+      })
         .from(
           '.blur-in',
           {
@@ -33,9 +38,19 @@ export default function Hero() {
             y: 20,
             duration: 1,
             stagger: 0.1,
-            delay: 0.3,
+            delay: 0.1,
           },
-          '-=1'
+          '-=0.4'
+        )
+        .from(
+          '.cta-btn',
+          {
+            opacity: 0,
+            y: 20,
+            duration: 0.6,
+            stagger: 0.1,
+          },
+          '-=0.6'
         );
     }, rootRef);
     return () => ctx.revert();
@@ -53,33 +68,46 @@ export default function Hero() {
       <BackgroundVideo overlay="bg-black/20" />
 
       <div className="relative z-10 flex flex-col items-center text-center px-6">
-        <p className="blur-in text-xs text-muted uppercase tracking-[0.3em] mb-8">
+        <p className="blur-in text-xs text-muted uppercase tracking-[0.3em] mb-6 sm:mb-8">
           {PROFILE.eyebrow}
         </p>
 
-        <h1 className="name-reveal text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-display italic leading-[0.9] tracking-tight text-text-primary mb-4 sm:mb-6">
-          {PROFILE.name}
+        <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-display italic leading-[0.9] tracking-tight text-text-primary mb-4 sm:mb-6 [perspective:600px]">
+          {nameWords.map((word, i) => (
+            <span key={i} className="inline-block overflow-hidden align-bottom mr-3 sm:mr-4">
+              <span className="name-word inline-block">{word}</span>
+            </span>
+          ))}
         </h1>
 
-        <p className="blur-in text-base sm:text-lg md:text-2xl text-muted mb-4 sm:mb-6">
-          A{' '}
-          <span
-            key={roleIndex}
-            className="font-display italic text-text-primary animate-role-fade-in inline-block"
-          >
-            {PROFILE.roles[roleIndex]}
-          </span>{' '}
-          in {PROFILE.location}.
+        <p className="blur-in text-base sm:text-lg md:text-2xl text-muted mb-4 sm:mb-6 flex items-center flex-wrap justify-center gap-x-2">
+          <span>A</span>
+          <span className="relative inline-flex h-[1.4em] overflow-hidden">
+            <AnimatePresence mode="popLayout" custom={direction}>
+              <motion.span
+                key={roleIndex}
+                custom={direction}
+                initial={{ y: direction > 0 ? '100%' : '-100%', opacity: 0 }}
+                animate={{ y: '0%', opacity: 1 }}
+                exit={{ y: direction > 0 ? '-100%' : '100%', opacity: 0 }}
+                transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+                className="font-display italic text-text-primary inline-block whitespace-nowrap"
+              >
+                {PROFILE.roles[roleIndex]}
+              </motion.span>
+            </AnimatePresence>
+          </span>
+          <span>in {PROFILE.location}.</span>
         </p>
 
         <p className="blur-in text-sm md:text-base text-muted max-w-md mb-8 sm:mb-12">
           {PROFILE.description}
         </p>
 
-        <div className="blur-in inline-flex flex-col sm:flex-row gap-4">
+        <div className="inline-flex flex-col sm:flex-row gap-4">
           <button
             onClick={scrollToWork}
-            className="group relative rounded-full p-[2px] hover:scale-105 transition-transform duration-300"
+            className="cta-btn group relative rounded-full p-[2px] hover:scale-105 transition-transform duration-300"
           >
             <span
               className="absolute inset-0 rounded-full accent-gradient opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -92,7 +120,7 @@ export default function Hero() {
 
           <a
             href={`mailto:${PROFILE.email}`}
-            className="group relative rounded-full p-[2px] hover:scale-105 transition-transform duration-300"
+            className="cta-btn group relative rounded-full p-[2px] hover:scale-105 transition-transform duration-300"
           >
             <span
               className="absolute inset-0 rounded-full accent-gradient opacity-0 group-hover:opacity-100 transition-opacity duration-300"
