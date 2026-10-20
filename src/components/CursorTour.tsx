@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Sparkles, X, ArrowRight } from 'lucide-react';
+import { Sparkles, X, ArrowRight, Compass } from 'lucide-react';
 
 type TourStep = {
   title: string;
@@ -96,6 +96,11 @@ export default function CursorTour() {
     setDismissed(true);
   };
 
+  const startTour = () => {
+    setStep(0);
+    setActive(true);
+  };
+
   const next = () => {
     if (step < TOUR_STEPS.length - 1) {
       setStep((s) => s + 1);
@@ -132,8 +137,25 @@ export default function CursorTour() {
   }
 
   return (
-    <AnimatePresence>
-      {active && (
+    <>
+      <AnimatePresence>
+        {!active && (
+          <motion.button
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            transition={{ delay: 1, duration: 0.4 }}
+            onClick={startTour}
+            className="group fixed bottom-6 right-4 sm:right-6 z-40 flex items-center gap-2 rounded-full border border-stroke bg-surface/90 backdrop-blur-md px-4 py-2.5 text-xs text-muted hover:text-text-primary transition-colors shadow-lg"
+          >
+            <Compass className="w-4 h-4 group-hover:rotate-180 transition-transform duration-500" />
+            <span className="hidden sm:inline">Take tour</span>
+          </motion.button>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {active && (
         <>
           <motion.div
             initial={{ opacity: 0 }}
@@ -210,6 +232,7 @@ export default function CursorTour() {
           </motion.div>
         </>
       )}
-    </AnimatePresence>
+      </AnimatePresence>
+    </>
   );
 }

@@ -344,21 +344,6 @@ export const BEFORE_AFTER: BeforeAfterItem[] = [
   },
 ];
 
-export type SalePing = {
-  project: string;
-  client: string;
-  time: string;
-  price: string;
-};
-
-export const SALE_PINGS: SalePing[] = [
-  { project: 'Business Website', client: 'Salon in Srinagar', time: '2 min ago', price: '₹22,000' },
-  { project: 'Starter Website', client: 'Shop in Gulmarg', time: '15 min ago', price: '₹12,000' },
-  { project: 'Business Website', client: 'Clinic in Srinagar', time: '1 hour ago', price: '₹18,000' },
-  { project: 'Starter Website', client: 'Cafe in Pahalgam', time: '3 hours ago', price: '₹14,000' },
-  { project: 'Business Website', client: 'Boutique in Jammu', time: '5 hours ago', price: '₹25,000' },
-];
-
 export const SOCIALS = [
   { label: 'GitHub', url: 'https://github.com/syedtajamul32-ux' },
   { label: 'LinkedIn', url: 'https://www.linkedin.com/in/tajamul-reyaz-496592322' },
