@@ -6,25 +6,25 @@ type TourStep = {
   title: string;
   description: string;
   target: string;
-  position: 'top' | 'bottom' | 'left' | 'right' | 'center';
+  position: 'top' | 'bottom' | 'center';
 };
 
 const TOUR_STEPS: TourStep[] = [
   {
     title: 'Welcome to my portfolio',
-    description: 'Let me take you on a quick tour of what I can build for your business.',
+    description: "Let me take you on a quick tour of what I can build for your business.",
     target: 'body',
     position: 'center',
   },
   {
     title: 'My Work',
-    description: 'These are real projects I\'ve shipped — from gaming platforms to AI tools and salon websites.',
+    description: "These are real projects I've shipped — salon websites, utility tools, and more.",
     target: '#work',
     position: 'top',
   },
   {
     title: 'Client Reviews',
-    description: 'Don\'t just take my word for it — here\'s what my clients say about working with me.',
+    description: "Don't just take my word for it — here's what my clients say about working with me.",
     target: '#clients',
     position: 'top',
   },
@@ -35,8 +35,8 @@ const TOUR_STEPS: TourStep[] = [
     position: 'top',
   },
   {
-    title: 'Let\'s build together',
-    description: 'Ready to start? Click any of the contact buttons and let\'s make your website happen.',
+    title: "Let's build together",
+    description: "Ready to start? Click any of the contact buttons and let's make your website happen.",
     target: '#contact',
     position: 'bottom',
   },
@@ -109,6 +109,28 @@ export default function CursorTour() {
   const currentStep = TOUR_STEPS[step];
   const isCenter = currentStep?.position === 'center';
 
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 640;
+  const cardWidth = isMobile ? window.innerWidth - 32 : 340;
+  const maxLeft = isMobile ? 16 : window.innerWidth - cardWidth - 16;
+
+  let cardTop: number;
+  let cardLeft: number;
+
+  if (isCenter) {
+    cardTop = window.innerHeight / 2 - 80;
+    cardLeft = Math.max(16, Math.min(maxLeft, window.innerWidth / 2 - cardWidth / 2));
+  } else if (box) {
+    if (currentStep.position === 'bottom') {
+      cardTop = Math.min(box.bottom + 16, window.innerHeight - 200);
+    } else {
+      cardTop = Math.max(80, box.top - 120);
+    }
+    cardLeft = Math.max(16, Math.min(maxLeft, box.left + box.width / 2 - cardWidth / 2));
+  } else {
+    cardTop = 80;
+    cardLeft = 16;
+  }
+
   return (
     <AnimatePresence>
       {active && (
@@ -117,12 +139,13 @@ export default function CursorTour() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[500] pointer-events-none"
+            className="fixed inset-0 z-[500] pointer-events-auto"
             style={{
               background: box && !isCenter
-                ? `radial-gradient(circle 250px at ${box.left + box.width/2}px ${box.top + box.height/2}px, transparent 0%, rgba(0,0,0,0.65) 100%)`
+                ? `radial-gradient(circle 250px at ${box.left + box.width/2}px ${box.top + box.height/2}px, transparent 0%, rgba(0,0,0,0.7) 100%)`
                 : 'rgba(0,0,0,0.6)',
             }}
+            onClick={skip}
           />
 
           <motion.div
@@ -145,24 +168,9 @@ export default function CursorTour() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
             className="fixed z-[520] pointer-events-auto"
-            style={
-              box && !isCenter
-                ? {
-                    top: currentStep.position === 'bottom'
-                      ? box.bottom + 16
-                      : currentStep.position === 'top'
-                      ? Math.max(80, box.top - 120)
-                      : box.top + 16,
-                    left: Math.max(16, Math.min(window.innerWidth - 320, box.left + box.width / 2 - 150)),
-                  }
-                : {
-                    top: '50%',
-                    left: '50%',
-                    transform: 'translate(-50%, -50%)',
-                  }
-            }
+            style={{ top: cardTop, left: cardLeft, width: cardWidth }}
           >
-            <div className="w-[300px] sm:w-[340px] rounded-2xl border border-stroke bg-surface backdrop-blur-xl p-5 shadow-2xl">
+            <div className="rounded-2xl border border-stroke bg-surface backdrop-blur-xl p-4 sm:p-5 shadow-2xl">
               <div className="flex items-start justify-between mb-3">
                 <div className="flex items-center gap-2">
                   <div className="flex h-6 w-6 items-center justify-center rounded-full accent-gradient">
@@ -170,23 +178,23 @@ export default function CursorTour() {
                   </div>
                   <span className="text-xs text-muted">{step + 1} of {TOUR_STEPS.length}</span>
                 </div>
-                <button onClick={skip} className="text-muted hover:text-text-primary transition-colors">
+                <button onClick={skip} className="text-muted hover:text-text-primary transition-colors p-1">
                   <X className="w-4 h-4" />
                 </button>
               </div>
-              <h3 className="text-lg font-display italic text-text-primary mb-2">
+              <h3 className="text-base sm:text-lg font-display italic text-text-primary mb-2">
                 {currentStep.title}
               </h3>
-              <p className="text-sm text-muted leading-relaxed mb-4">
+              <p className="text-xs sm:text-sm text-muted leading-relaxed mb-4">
                 {currentStep.description}
               </p>
-              <div className="flex items-center justify-between">
-                <button onClick={skip} className="text-xs text-muted hover:text-text-primary transition-colors">
+              <div className="flex items-center justify-between gap-3">
+                <button onClick={skip} className="text-xs text-muted hover:text-text-primary transition-colors shrink-0">
                   Skip tour
                 </button>
                 <button
                   onClick={next}
-                  className="group relative rounded-full p-[2px] hover:scale-105 transition-transform"
+                  className="group relative rounded-full p-[2px] hover:scale-105 transition-transform shrink-0"
                 >
                   <span
                     className="absolute inset-0 rounded-full accent-gradient"

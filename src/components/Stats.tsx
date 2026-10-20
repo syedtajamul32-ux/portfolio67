@@ -70,7 +70,7 @@ function SalePings() {
   const ping = SALE_PINGS[visiblePing];
 
   return (
-    <div className="fixed bottom-6 left-4 sm:left-6 z-40 pointer-events-none hidden md:block">
+    <div className="fixed bottom-6 left-4 sm:left-6 z-40 pointer-events-none">
       <AnimatePresence>
         {show && (
           <motion.div

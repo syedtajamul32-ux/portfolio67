@@ -26,17 +26,10 @@ export type Project = {
 export const PROJECTS: Project[] = [
   {
     title: 'Battle Bunker',
-    category: 'Gaming Platform',
+    category: 'Gaming Platform — Demo',
     description: 'A competitive gaming & battle platform built for fast-paced play.',
     url: 'https://syedtajamul32-ux.github.io/Battlebunker1/',
     emoji: '🎮',
-  },
-  {
-    title: 'Kashmir AI',
-    category: 'AI Application',
-    description: 'An AI-powered application tailored for the Kashmir ecosystem.',
-    url: 'https://kashmirai.lovable.app',
-    emoji: '🤖',
   },
   {
     title: 'SplitOne',
@@ -46,25 +39,11 @@ export const PROJECTS: Project[] = [
     emoji: '🧑‍💻',
   },
   {
-    title: 'Humanize AI',
-    category: 'AI Tool',
-    description: 'An AI humanization tool that refines machine-generated text.',
-    url: 'https://humanize-ai.bolt.host',
-    emoji: '🪄',
-  },
-  {
     title: 'Global Grace Salon',
     category: 'Salon & Booking',
     description: 'A full unisex salon website with online booking and elegant service showcase.',
     url: 'https://syedtajamul32-ux.github.io/globalgracesalon/',
     emoji: '💇‍♀️',
-  },
-  {
-    title: 'Durable AI Site',
-    category: 'Business Website',
-    description: 'A business website built end-to-end with Durable AI.',
-    url: 'https://brcombinescom.durable.site',
-    emoji: '🌍',
   },
   {
     title: 'Deepsex Unisex Salon',
@@ -346,22 +325,22 @@ export type BeforeAfterItem = {
 
 export const BEFORE_AFTER: BeforeAfterItem[] = [
   {
-    label: 'Salon Booking Site',
+    label: 'Global Grace Salon',
     before: 'No website, bookings only by phone',
     after: 'Online booking system, 40% more appointments',
     emoji: '💇‍♀️',
   },
   {
-    label: 'Gaming Platform',
-    before: 'Idea on paper, no platform',
-    after: 'Live gaming platform with active users',
-    emoji: '🎮',
+    label: 'NS The Beauty Salon',
+    before: 'Basic social media page, no direct bookings',
+    after: 'Professional website with 5x more inquiries',
+    emoji: '💅',
   },
   {
-    label: 'AI Tool',
-    before: 'Manual text processing, hours of work',
-    after: 'AI-powered tool, seconds per task',
-    emoji: '🤖',
+    label: 'Deepsex Unisex Salon',
+    before: 'Walk-in only, no online presence',
+    after: 'Full booking site with Google Maps and SEO',
+    emoji: '✂️',
   },
 ];
 
@@ -375,9 +354,9 @@ export type SalePing = {
 export const SALE_PINGS: SalePing[] = [
   { project: 'Business Website', client: 'Salon in Srinagar', time: '2 min ago', price: '₹22,000' },
   { project: 'Starter Website', client: 'Shop in Gulmarg', time: '15 min ago', price: '₹12,000' },
-  { project: 'Premium Website', client: 'Startup in Delhi', time: '1 hour ago', price: '₹65,000' },
-  { project: 'Business Website', client: 'Clinic in Jammu', time: '3 hours ago', price: '₹18,000' },
-  { project: 'Premium Website', client: 'Brand in Mumbai', time: '5 hours ago', price: '₹85,000' },
+  { project: 'Business Website', client: 'Clinic in Srinagar', time: '1 hour ago', price: '₹18,000' },
+  { project: 'Starter Website', client: 'Cafe in Pahalgam', time: '3 hours ago', price: '₹14,000' },
+  { project: 'Business Website', client: 'Boutique in Jammu', time: '5 hours ago', price: '₹25,000' },
 ];
 
 export const SOCIALS = [

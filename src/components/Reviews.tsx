@@ -116,11 +116,8 @@ export default function Reviews() {
             {order.map((idx, i) => {
               const t = TESTIMONIALS[idx];
               return (
-                <motion.a
+                <motion.div
                   key={idx}
-                  href={t.projectUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   layout
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
@@ -130,35 +127,41 @@ export default function Reviews() {
                     delay: i * 0.05,
                     ease: [0.25, 0.1, 0.25, 1],
                   }}
-                  className="group rounded-3xl border border-stroke bg-surface p-5 sm:p-6 flex flex-col gap-4 hover:border-text-primary/20 transition-colors duration-300"
                 >
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className="h-10 w-10 rounded-full accent-gradient flex items-center justify-center text-bg font-display text-lg">
-                        {t.client.charAt(0).toUpperCase()}
+                  <a
+                    href={t.projectUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group rounded-3xl border border-stroke bg-surface p-5 sm:p-6 flex flex-col gap-4 hover:border-text-primary/20 transition-colors duration-300 block h-full"
+                  >
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-3">
+                        <div className="h-10 w-10 rounded-full accent-gradient flex items-center justify-center text-bg font-display text-lg">
+                          {t.client.charAt(0).toUpperCase()}
+                        </div>
+                        <div>
+                          <p className="text-sm font-medium text-text-primary">
+                            {maskName(t.client)}
+                          </p>
+                          <p className="text-xs text-muted">{t.role}</p>
+                        </div>
                       </div>
-                      <div>
-                        <p className="text-sm font-medium text-text-primary">
-                          {maskName(t.client)}
-                        </p>
-                        <p className="text-xs text-muted">{t.role}</p>
-                      </div>
+                      <StarRow value={t.rating} size="sm" />
                     </div>
-                    <StarRow value={t.rating} size="sm" />
-                  </div>
-                  <div className="relative">
-                    <Quote className="absolute -top-2 -left-1 w-5 h-5 text-stroke" />
-                    <p className="text-sm text-muted leading-relaxed pl-5">
-                      {t.quote}
-                    </p>
-                  </div>
-                  <div className="flex items-center justify-between pt-3 border-t border-stroke mt-auto">
-                    <span className="text-xs text-muted uppercase tracking-[0.2em]">
-                      {t.project}
-                    </span>
-                    <ArrowUpRight className="w-4 h-4 text-muted group-hover:text-text-primary transition-colors" />
-                  </div>
-                </motion.a>
+                    <div className="relative">
+                      <Quote className="absolute -top-2 -left-1 w-5 h-5 text-stroke" />
+                      <p className="text-sm text-muted leading-relaxed pl-5">
+                        {t.quote}
+                      </p>
+                    </div>
+                    <div className="flex items-center justify-between pt-3 border-t border-stroke mt-auto">
+                      <span className="text-xs text-muted uppercase tracking-[0.2em]">
+                        {t.project}
+                      </span>
+                      <ArrowUpRight className="w-4 h-4 text-muted group-hover:text-text-primary transition-colors" />
+                    </div>
+                  </a>
+                </motion.div>
               );
             })}
           </AnimatePresence>
