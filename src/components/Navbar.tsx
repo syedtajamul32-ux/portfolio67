@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
-import { Github } from 'lucide-react';
+import { Github, MessageCircle } from 'lucide-react';
 import { PROFILE } from '@/data';
+import { useChat } from '@/components/chat/ChatContext';
 
 const LINKS = ['Home', 'Work', 'Clients', 'Resume'];
 
@@ -8,6 +9,7 @@ export default function Navbar() {
   const [active, setActive] = useState('Home');
   const [scrolled, setScrolled] = useState(false);
   const ringRef = useRef<HTMLDivElement>(null);
+  const { toggleChat, isOpen } = useChat();
 
   useEffect(() => {
     const onScroll = () => {
@@ -84,6 +86,25 @@ export default function Navbar() {
         </nav>
 
         <div className="w-px h-5 bg-stroke mx-1 hidden sm:block" />
+
+        <button
+          onClick={toggleChat}
+          className={`relative group rounded-full p-[2px] text-xs sm:text-sm transition-transform hover:scale-105 ${
+            isOpen ? 'scale-105' : ''
+          }`}
+        >
+          <span
+            className="absolute inset-0 rounded-full accent-gradient transition-opacity duration-300"
+            style={{ backgroundSize: '200% 200%', animation: 'gradient-shift 6s ease infinite', opacity: isOpen ? 1 : 0 }}
+          />
+          <span className="absolute inset-0 rounded-full accent-gradient opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            style={{ backgroundSize: '200% 200%', animation: 'gradient-shift 6s ease infinite' }}
+          />
+          <span className="relative flex items-center gap-1.5 rounded-full bg-surface backdrop-blur-md px-2.5 sm:px-4 py-1.5 sm:py-2 text-text-primary whitespace-nowrap">
+            <MessageCircle className="w-3.5 h-3.5" />
+            <span className="hidden sm:inline">Chat with me</span>
+          </span>
+        </button>
 
         <a
           href={PROFILE.github}
